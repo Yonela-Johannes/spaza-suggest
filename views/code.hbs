@@ -1,0 +1,18 @@
+<div class="main-container">
+    <div class="main-wrapper">
+        <h2 class="title">login</h2>
+        <div class="bottom-wrapper">
+            <form action='/login' method="POST">
+                <div>
+                    <label class="errors error">{{error}}</label>
+                    <label class="errors success">{{success}}</label>
+                    <p class="name-label">code: {{code}}</p>
+                    <input class='name' type="text" name='code' placeholder="Enter code..." value="" />
+                </div>
+                <button type="submit" class="days-button">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

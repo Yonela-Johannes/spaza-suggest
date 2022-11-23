@@ -1,0 +1,53 @@
+<div class="main-container">
+    <div class="main-wrapper">
+        <h2 class="title">Spaza Suggest</h2>
+
+        <form action="/client/{{id}}" method="POST">
+            <p class="username">{{name}}</p>
+            <div class="bottom-container">
+                <p class="product">Area</p>
+                <div class="radio-selectors">
+                    <div class="days">
+                        {{#each allAreas}}
+                        <div class="checkbox-container">
+                            <div class="days-name">{{area_name}}</div>
+                            <div class="checkbox-items">
+                                <input name='day' type="radio" class='check' value="{{id}}" {{area_name}}><span
+                                    class="checkmark"></span></input>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div>
+                    <div class="input__container">
+                        <p class="product">Product</p>
+                            <input class="login-input" value="" name="product" placeholder="Enter product name" />
+                        </div>
+                    </div>
+                <div class="buttons logout schedule-btns">
+                    <div>
+                        <button title="Schedule your days" type="submit" class="days-button user-btn exists">
+                            Submit
+                        </button>
+                    </div>
+        </form>
+        <div>
+            <p>Suggestion Made:</p>
+            <div class="main-wrapper">
+                {{#each suggestions}}
+                <div class="user">
+                    <span class="day">{{area_name}}
+                        <span class="users ">
+                            {{product_name}}
+                        </span>
+                    </span>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>

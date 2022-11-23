@@ -1,0 +1,24 @@
+<div class="main-container">
+    <div class="main-wrapper">
+        <h2 class="title">Sign up</h2>
+        <div class="bottom-wrapper">
+            <form action='/' method="POST">
+                <div>
+                    <label class="errors error">{{error}}</label>
+                    <label class="errors success">{{success}}</label>
+                    <p class="name-label">Name:</p>
+                    <input class='name' type="text" name='name' placeholder="Enter your name" value="" />
+                </div>
+                <button type="submit" class="days-button">
+                    Get Code
+                </button>
+            </form>
+            <a href="login">
+                <button class="days-button">
+                    Login
+                </button>
+            </a>
+        </div>
+        <p>Copy code: {{code}}</p>
+    </div>
+</div>
