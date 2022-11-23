@@ -104,7 +104,6 @@ export const Routes = (spazaSugggest) => {
     const spazaPage = async (req, res) => {
         const { id } = req.params
         const suggestions = await spazaSugggest.suggestionsForArea(id)
-        console.log(suggestions)
         res.render('areas', {
             suggestions,
         })

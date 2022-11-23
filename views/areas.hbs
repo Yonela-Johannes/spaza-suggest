@@ -1,17 +1,17 @@
 <div class="main-container">
     <div class="main-wrapper">
-        <label class="errors error">{{error}}</label>
-        <label class="errors success">{{success}}</label>
         <h2 class="title">Suggestions</h2>
+         <form action='/' method="POST"></form>
             {{#each suggestions}}
             <div class="user">
-                <a href="/">
                     <span class="day">
-                        {{area_name}}
+                        <button type="submit" class="days-button">
+                            {{product_name}}
+                        </button>
                     </span>
-                </a>
-                {{/each}}
+            {{/each}}
             </div>
         </div>
+    </form>
     </div>
 </div>
