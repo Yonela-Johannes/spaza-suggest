@@ -1,0 +1,39 @@
+<div class="main-container">
+    <div class="main-wrapper">
+        <h2 class="title">Spaza Registration</h2>
+        <div class="bottom-wrapper">
+            <form action='/register' method="POST">
+                <div>
+                    <label class="errors error">{{error}}</label>
+                    <label class="errors success">{{success}}</label>
+                    <p class="name-label">Spaza name:</p>
+                    <input class='name' type="text" name='name' placeholder="Enter spaza name" value="" />
+                </div>
+                <div>
+                <div class="radio-selectors">
+                    <div class="days">
+                        {{#each allAreas}}
+                        <div class="checkbox-container">
+                            <div class="days-name">{{area_name}}</div>
+                            <div class="checkbox-items">
+                                <input name='day' type="radio" class='check' value="{{id}}" {{area_name}}><span
+                                    class="checkmark"></span></input>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                </div>
+                <button type="submit" class="days-button">
+                    Get Code
+                </button>
+            </form>
+            <a href="/register-spaza">
+                <button class="days-button">
+                    Login
+                </button>
+            </a>
+        </div>
+        <p>Copy code: {{code}}</p>
+    </div>
+</div>

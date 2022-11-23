@@ -46,7 +46,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: { maxAge: 60000 }
 }))
-
+// register user
 app.get('/', routes.getLanding)
 app.post('/', routes.postLanding)
 app.get('/login', routes.getLogin)
@@ -54,7 +54,17 @@ app.post('/login', routes.postLogin)
 app.get('/client/:id', routes.clientPage)
 app.post('/client/:id', routes.postClientPage)
 
+//register client
+app.get('/register', routes.getRegister)
+app.post('/register', routes.postRegister)
+app.get('/register-spaza', routes.getSpaza)
+app.post('/register-spaza', routes.postSpaza)
+app.get('/spaza/:id', routes.spazaPage)
+app.post('/spaza/:id', routes.postSpazaPage)
+
 const port = process.env.PORT || 8080
 app.listen(port, () => {
     console.log('Your app is running on port: ', port)
 })
+
+// NxD0T

@@ -15,6 +15,27 @@ export const Routes = (spazaSugggest) => {
        
     }
 
+    const getRegister = async (req, res) => {
+        const allAreas = await spazaSugggest.areas()
+        res.render('register_spaza', {
+            allAreas,
+        })
+    }
+    const postRegister = async (req, res) => {
+        const { name, day } = req.body
+        if(!name || !day){
+            res.redirect("/register")
+        } else{
+            const code = await spazaSugggest.registerSpaza(name, day)
+            const allAreas = await spazaSugggest.areas()
+            res.render("register_spaza", {
+                allAreas,
+                code
+            })
+        }
+       
+    }
+
     const getLogin = async (req, res) => {
         res.render('code')
     }
@@ -30,6 +51,19 @@ export const Routes = (spazaSugggest) => {
         }
     }
 
+    const getSpaza = async (req, res) => {
+        res.render('spaza_code')
+    }
+
+    const postSpaza = async (req, res) => {
+        const { code } = req.body
+        if(!code){
+            res.redirect(`/register-spaza`) 
+        } else{
+            const spaza = await spazaSugggest.spazaLogin(code)
+            res.redirect(`/spaza/${code}`)
+        }
+    }
 
     const clientPage = async (req, res) => {
         const allAreas = await spazaSugggest.areas()
@@ -65,13 +99,35 @@ export const Routes = (spazaSugggest) => {
             res.redirect(`/client/${id}`)
         }
     }
+
+
+    const spazaPage = async (req, res) => {
+        const { id } = req.params
+        const suggestions = await spazaSugggest.suggestionsForArea(id)
+        console.log(suggestions)
+        res.render('areas', {
+            suggestions,
+        })
+    }
+
+    const postSpazaPage = async (req, res) => {
+
+        const suggestions = await spazaSugggest.suggestionsForArea(id)
+    }   
+
     return {
         getLanding,
         postLanding,
+        getRegister,
+        postRegister,
         getLogin,
         postLogin,
+        getSpaza,
+        postSpaza,
         clientPage,
-        postClientPage
+        postClientPage,
+        spazaPage,
+        postSpazaPage
     }
 
 }

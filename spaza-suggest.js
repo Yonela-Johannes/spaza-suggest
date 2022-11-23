@@ -68,9 +68,10 @@ export default function SpazaSuggest (db){
     }
     
     // show all the suggestions for a given area
-    // function suggestionsForArea(areaId) {
-    //     ``
-    // }
+    async function suggestionsForArea(areaId) {
+        const suggestions = await db.manyOrNone(`select* from spaza join suggestion on spaza.area_id = suggestion.area_id where code = $1`,[areaId])
+        return suggestions
+    }
     
     async function alreadyAcceptedSuggestionForSpaza(suggestionId, spazaId) {
         const count = await db.one(`select count(*) from accepted_suggestion where suggestion_id = $1 and spaza_id = $2`,

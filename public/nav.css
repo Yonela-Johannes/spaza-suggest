@@ -22,13 +22,13 @@
 }
 
 .w {
-    color: #323330;
     width: 100%;
 }
 
 a {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: #323330;
+
     font-weight: bold;
 }
 
